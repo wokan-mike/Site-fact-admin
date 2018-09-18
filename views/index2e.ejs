@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Saigsa Admin Control</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <!-- CSS Files -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="assets/css/now-ui-dashboard.css?v=1.0.1" rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="assets/demo/demo.css" rel="stylesheet" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+</head>
+
+<body class="">
+    <div class="wrapper ">
+        <div class="sidebar" data-color="orange">
+            <!--
+        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
+    -->
+            <div class="logo">
+                <a href="http://www.saigsa.com.mx" class="simple-text logo-mini">
+                    CT
+                </a>
+                <a href="http://www.saigsa.com.mx" class="simple-text logo-normal">
+                    Saigsa Admin Dash
+                </a>
+            </div>
+            <div class="sidebar-wrapper">
+                <ul class="nav">
+                    <li>
+                        <a href="analytics">
+                            <i class="now-ui-icons objects_spaceship"></i>
+                            <p>Analytics Dashboard</p>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="/">
+                            <i class="now-ui-icons design-2_ruler-pencil"></i>
+                            <p>Upload Image</p>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="main-panel">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute bg-primary fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-wrapper">
+                        <div class="navbar-toggle">
+                            <button type="button" class="navbar-toggler">
+                                <span class="navbar-toggler-bar bar1"></span>
+                                <span class="navbar-toggler-bar bar2"></span>
+                                <span class="navbar-toggler-bar bar3"></span>
+                            </button>
+                        </div>
+                        <a class="navbar-brand" href="">Subir imagen</a>
+                    </div>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-bar navbar-kebab"></span>
+                        <span class="navbar-toggler-bar navbar-kebab"></span>
+                        <span class="navbar-toggler-bar navbar-kebab"></span>
+                    </button>
+
+                </div>
+            </nav>
+            <!-- End Navbar -->
+            <div class="panel-header panel-header-sm">
+            </div>
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card ">
+                            <div class="card-header ">
+                                Upload an image
+                            </div>
+                            <div class="card-body ">
+                              <%= typeof msg != 'undefined' ? msg : '' %>
+                              <form action="/select" method="POST" >
+                                  <div class="card-body">
+                                    <div class="row">
+                                      <label class="col-sm-2 col-form-label">Selecciona las estaciones que se cambiara en imagenes, selecciona 1 imagen por estación</label>
+                                      <div class="col-sm-3 col-sm-offset-1 checkbox-radios">
+                                        <div class="card-title">
+                                          Atizapan
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "A1"><span class="form-check-sign"></span>Img1</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "A2"><span class="form-check-sign"></span>Img2</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "A3"><span class="form-check-sign"></span>Img3</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "A4"><span class="form-check-sign"></span>Img4</label>
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-3 col-sm-offset-1 checkbox-radios">
+                                        <div class="card-title">
+                                          BC
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "B1"><span class="form-check-sign"></span>Img1</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "B2"><span class="form-check-sign"></span>Img2</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "B3"><span class="form-check-sign"></span>Img3</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "B4"><span class="form-check-sign"></span>Img4</label>
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-3 col-sm-offset-1 checkbox-radios">
+                                        <div class="card-title">
+                                          Boulevares
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "BO1"><span class="form-check-sign"></span>Img1</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "BO2"><span class="form-check-sign"></span>Img2</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "BO3"><span class="form-check-sign"></span>Img3</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "BO4"><span class="form-check-sign"></span>Img4</label>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-sm-3 col-sm-offset-1 checkbox-radios">
+                                        <div class="card-title">
+                                          Carretera
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "C1"><span class="form-check-sign"></span>Img1</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "C2"><span class="form-check-sign"></span>Img2</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "C3"><span class="form-check-sign"></span>Img3</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "C4"><span class="form-check-sign"></span>Img4</label>
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-3 col-sm-offset-1 checkbox-radios">
+                                        <div class="card-title">
+                                          Coatepec
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "CO1"><span class="form-check-sign"></span>Img1</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "CO2"><span class="form-check-sign"></span>Img2</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "CO3"><span class="form-check-sign"></span>Img3</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "CO4"><span class="form-check-sign"></span>Img4</label>
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-3 col-sm-offset-1 checkbox-radios">
+                                        <div class="card-title">
+                                          Comonfort
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "COMO1"><span class="form-check-sign"></span>Img1</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "COMO2"><span class="form-check-sign"></span>Img2</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "COMO3"><span class="form-check-sign"></span>Img3</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "COMO4"><span class="form-check-sign"></span>Img4</label>
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-3 col-sm-offset-1 checkbox-radios">
+                                        <div class="card-title">
+                                          Conscripto
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "CON1"><span class="form-check-sign"></span>Img1</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "CON2"><span class="form-check-sign"></span>Img2</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "CON3"><span class="form-check-sign"></span>Img3</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "CON4"><span class="form-check-sign"></span>Img4</label>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-sm-3 col-sm-offset-1 checkbox-radios">
+                                        <div class="card-title">
+                                          Fas
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "F1"><span class="form-check-sign"></span>Img1</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "F2"><span class="form-check-sign"></span>Img2</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "F3"><span class="form-check-sign"></span>Img3</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "F4"><span class="form-check-sign"></span>Img4</label>
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-3 col-sm-offset-1 checkbox-radios">
+                                        <div class="card-title">
+                                          Impulso
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "I1"><span class="form-check-sign"></span>Img1</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "I2"><span class="form-check-sign"></span>Img2</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "I3"><span class="form-check-sign"></span>Img3</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "I4"><span class="form-check-sign"></span>Img4</label>
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-3 col-sm-offset-1 checkbox-radios">
+                                        <div class="card-title">
+                                          Mantarraya
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "M1"><span class="form-check-sign"></span>Img1</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "M2"><span class="form-check-sign"></span>Img2</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "M3"><span class="form-check-sign"></span>Img3</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "M4"><span class="form-check-sign"></span>Img4</label>
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-3 col-sm-offset-1 checkbox-radios">
+                                        <div class="card-title">
+                                          Navarro
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "N1"><span class="form-check-sign"></span>Img1</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "N2"><span class="form-check-sign"></span>Img2</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "N3"><span class="form-check-sign"></span>Img3</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "N4"><span class="form-check-sign"></span>Img4</label>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-sm-3 col-sm-offset-1 checkbox-radios">
+                                        <div class="card-title">
+                                          Riviera
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "R1"><span class="form-check-sign"></span>Img1</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "R2"><span class="form-check-sign"></span>Img2</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "R3"><span class="form-check-sign"></span>Img3</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "R4"><span class="form-check-sign"></span>Img4</label>
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-3 col-sm-offset-1 checkbox-radios">
+                                        <div class="card-title">
+                                          San Alejo
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "SA1"><span class="form-check-sign"></span>Img1</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "SA2"><span class="form-check-sign"></span>Img2</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "SA3"><span class="form-check-sign"></span>Img3</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "SA4"><span class="form-check-sign"></span>Img4</label>
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-3 col-sm-offset-1 checkbox-radios">
+                                        <div class="card-title">
+                                          Tecamachalco
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "T1"><span class="form-check-sign"></span>Img1</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "T2"><span class="form-check-sign"></span>Img2</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "T3"><span class="form-check-sign"></span>Img3</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "T4"><span class="form-check-sign"></span>Img4</label>
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-3 col-sm-offset-1 checkbox-radios">
+                                        <div class="card-title">
+                                          Tlatilco
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "TL1"><span class="form-check-sign"></span>Img1</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "TL2"><span class="form-check-sign"></span>Img2</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "TL3"><span class="form-check-sign"></span>Img3</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "TL4"><span class="form-check-sign"></span>Img4</label>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <label class="col-sm-2 col-form-label"></label>
+                                      <div class="col-sm-3 col-sm-offset-1 checkbox-radios">
+                                        <div class="card-title">
+                                          Teoloyucan
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "TE1"><span class="form-check-sign"></span>Img1</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "TE2"><span class="form-check-sign"></span>Img2</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "TE3"><span class="form-check-sign"></span>Img3</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "TE4"><span class="form-check-sign"></span>Img4</label>
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-3 col-sm-offset-1 checkbox-radios">
+                                        <div class="card-title">
+                                          Ulises
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "U1"><span class="form-check-sign"></span>Img1</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "U2"><span class="form-check-sign"></span>Img2</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "U3"><span class="form-check-sign"></span>Img3</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "U4"><span class="form-check-sign"></span>Img4</label>
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-3 col-sm-offset-1 checkbox-radios">
+                                        <div class="card-title">
+                                          Viertiz
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "V1"><span class="form-check-sign"></span>Img1</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "V2"><span class="form-check-sign"></span>Img2</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "V3"><span class="form-check-sign"></span>Img3</label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label"><input class="form-check-input" type="checkbox" name= "V4"><span class="form-check-sign"></span>Img4</label>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                  </div>
+                                <button type="submit" class="btn">submit</button>
+                              </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<!--   Core JS Files   -->
+<script src="../assets/js/core/jquery.min.js"></script>
+<script src="../assets/js/core/popper.min.js"></script>
+<script src="../assets/js/core/bootstrap.min.js"></script>
+<script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js" type="text/html"></script>
+<!--  Google Maps Plugin    -->
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+<!-- Chart JS -->
+<script src="../assets/js/plugins/chartjs.min.js></script>
+<!--  Notifications Plugin    -->
+<script src="../assets/js/plugins/bootstrap-notify.js"></script>
+<!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+<script src="../assets/js/now-ui-dashboard.js?v=1.0.1></script>
+<!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
+<script src="../assets/demo/demo.js"></script>
+<script>
+    $(document).ready(function() {
+        // Javascript method's body can be found in assets/js/demos.js
+        demo.initGoogleMaps();
+    });
+</script>
+
+</html>

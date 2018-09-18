@@ -1,0 +1,764 @@
+
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+
+<!DOCTYPE html><html class=''>
+<head>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118065652-15"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-118065652-15');
+  </script>
+  
+  <script src='http://production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src=''></script><script src='http://production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="http://production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="http://production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/ebrewe/pen/QKpbBz?depth=everything&limit=all&order=popularity&page=12&q=portfolio&show_forks=false" />
+
+  <div class="svg-container">
+      <!-- I crated SVG with: https://codepen.io/anthonydugois/pen/mewdyZ -->
+      <svg viewbox="0 0 800 400" class="svg">
+        <path id="curve" fill="#232323" d="M 800 300 Q 400 350 0 300 L 0 0 L 800 0 L 800 300 Z">
+        </path>
+      </svg>
+    </div>
+
+    <header style="padding-bottom: 100;">
+      <div class="col">
+        <img src="assets/imgale/sabl.png" style="position: absolute; top: 0px; left: 10px; width: 200px;">
+      </div>
+      <h1 style="margin-top: -100px;"><font size= "10"> <b>Portal de facturación</b></font> </h1>
+      <h3>Bienvenido al nuevo portal de facturación, selecciona la estación.</h3>
+    </header>
+
+<script>
+  (function() {
+    // Variables
+    var $curve = document.getElementById("curve");
+    var last_known_scroll_position = 0;
+    var defaultCurveValue = 350;
+    var curveRate = 3;
+    var ticking = false;
+    var curveValue;
+
+    // Handle the functionality
+    function scrollEvent(scrollPos) {
+      if (scrollPos >= 0 && scrollPos < defaultCurveValue) {
+        curveValue = defaultCurveValue - parseFloat(scrollPos / curveRate);
+        $curve.setAttribute(
+          "d",
+          "M 800 300 Q 400 " + curveValue + " 0 300 L 0 0 L 800 0 L 800 300 Z"
+        );
+      }
+    }
+
+    // Scroll Listener
+    // https://developer.mozilla.org/en-US/docs/Web/Events/scroll
+    window.addEventListener("scroll", function(e) {
+      last_known_scroll_position = window.scrollY;
+
+      if (!ticking) {
+        window.requestAnimationFrame(function() {
+          scrollEvent(last_known_scroll_position);
+          ticking = false;
+        });
+      }
+
+      ticking = true;
+    });
+  })();
+  </script>
+
+
+
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+<style class="cp-pen-styles">@import "https://fonts.googleapis.com/css?family=Fira+Sans:300,400";
+
+body, html {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-image: url("assets/imgale/BYN.jpg");
+  /*background:#18171C	;
+  /*background: linear-gradient(0deg, #eae4e4, #f4f4f4);*/
+  font-family: "Fira Sans", helvetica, arial, sans-serif;
+}
+@import 'https://fonts.googleapis.com/css?family=Ubuntu:300, 400, 500, 700';
+@import compass
+
+$footerheight: 300px
+
+*, *:after, *:before {
+  margin: 0;
+  padding: 0;
+}
+
+.svg-container {
+  position: absolute;
+  top: -400;
+  right: 0;
+  left: 0;
+  z-index: -1;
+}
+
+svg {
+  path {
+    transition: .1s;
+  }
+
+  &:hover path {
+    d: path("M 800 300 Q 400 250 0 300 L 0 0 L 800 0 L 800 300 Z");
+  }
+}
+
+h3 {
+  font-weight: 400;
+}
+
+header {
+  color: #fff;
+  padding-top: 10vw;
+  padding-bottom: 150px;
+  text-align: center;
+}
+
+main {
+  background: linear-gradient(to bottom, #ffffff 0%, #dddee1 100%);
+  border-bottom: 1px solid rgba(0, 0, 0, .2);
+  padding: 10vh 0 80vh;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+
+  &::after {
+    border-right: 2px dashed #eee;
+    content: '';
+    position: absolute;
+    top: calc(10vh + 1.618em);
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+  }
+}
+
+footer {
+  position: relative;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+  background: #222;
+  height: 110;
+}
+
+small {
+  opacity: .5;
+  font-weight: 300;
+
+  a {
+    color: inherit;
+  }
+}
+
+#portfolio {
+  display: block;
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+}
+
+.gallery {
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row wrap;
+  width: 100%;
+}
+.gallery .gallery-mask {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.0);
+  z-index: 1;
+  transition: all .2s ease-out;
+  opacity: 0;
+  display: none;
+}
+.gallery .gallery-mask.active {
+  display: block;
+  transition: all .6s ease-out;
+  opacity: 1;
+}
+
+.gallery-item {
+  display: flex;
+  position: relative;
+  width: 20%;
+  height: 200px;
+  background-color: white;
+  margin-bottom: 20px;
+  align-items: center;
+  justify-content: center;
+  background: white no-repeat center center;
+  background-size: cover;
+  box-shadow: 3px 5px 15px -3px rgba(0, 0, 0, 0.3);
+  transition: all .4s ease-out;
+  overflow: hidden;
+  z-index: 5;
+}
+.gallery-item h2 {
+  color: white;
+  font-weight: 300;
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+.gallery-item h1 {
+  color: white;
+  font-size:x-small;
+  text-transform: uppercase;
+}
+
+
+.gallery-item .item-mask {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: rgba(255,117, 020, 0.3);
+  z-index: 1;
+  transition: all .2s ease-out;
+}
+.gallery-item:hover {
+  transform: scale(1.05);
+}
+.gallery-item:hover .item-mask {
+  opacity: 0;
+}
+.gallery-item.active {
+  opacity: 0;
+  transform: scale(0.4);
+}
+@media (max-width: 760px) {
+  .gallery-item {
+    width: 48%;
+  }
+}
+
+.card {
+  display: block;
+  position: absolute;
+  top: -200%;
+  left: 0;
+  width: 30%;
+  height: 200px;
+  padding: 50px;
+  background: white;
+  overflow: hidden;
+  z-index: 200;
+  box-shadow: 5px 7px 20px -5px rgba(0, 0, 0, 0.3);
+}
+@media (max-width: 760px) {
+  .card {
+    width: 48%;
+  }
+}
+.card .btn-close {
+  display: block;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+}
+
+.card .btn-go {
+  font-size: 12px;
+  padding: 10px 24px;
+  border-radius: 8px;
+  color: white;
+  background: rgba(255,175,75,1);
+  background: -moz-linear-gradient(left, rgba(255,175,75,1) 0%, rgba(255,146,10,1) 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,175,75,1)), color-stop(100%, rgba(255,146,10,1)));
+  background: -webkit-linear-gradient(left, rgba(255,175,75,1) 0%, rgba(255,146,10,1) 100%);
+  background: -o-linear-gradient(left, rgba(255,175,75,1) 0%, rgba(255,146,10,1) 100%);
+  background: -ms-linear-gradient(left, rgba(255,175,75,1) 0%, rgba(255,146,10,1) 100%);
+  background: linear-gradient(to right, rgba(255,175,75,1) 0%, rgba(255,146,10,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaf4b', endColorstr='#ff920a', GradientType=1 );
+
+}
+
+.card h1, .card p {
+  width: 500px;
+  transition: all .4s linear;
+}
+.card.active {
+  top: 50% !important;
+  left: 50% !important;
+  width: 600px;
+  height: 80%;
+  transform: translate(-50%, -50%);
+  transition: all .4s ease-in;
+}
+.card.active h1, .card.active p {
+  width: 500px;
+}
+@media (max-width: 760px) {
+  .card.active {
+    width: 320px;
+    padding: 50px 30px;
+  }
+  .card.active h1, .card.active p {
+    width: 260px;
+  }
+}
+.card.transit {
+  transform: translate(-50%, -100%);
+  opacity: 0;
+}
+
+.backdrop {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent no-repeat center center;
+  background-size: cover;
+  opacity: 0;
+  z-index: 1;
+  transition: opacity .6s ease-in;
+}
+.backdrop.active {
+  opacity: 1;
+}
+</style></head><body>
+
+<div class="container" style="margin-bottom: 530;">
+  <div id="portfolio"></div>
+</div>
+<script src='https://production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.min.js'></script>
+<script>'use strict';
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _React = React;
+var Component = _React.Component;
+
+var items = [{ name: 'ATIZAPAN', image: 'assets/imgale/E09247.jpg' }, { name: 'BC', image: 'assets/imgale/E00186.jpg' }, { name: 'BULEVARES', image: 'assets/imgale/E03661.jpg' }, { name: 'CARRETERA', image: 'assets/imgale/E02698.jpg' }, { name: 'COATEPEC',code:'E10415', image: 'assets/imgale/E10415.jpg' }, { name: 'COMONFORT', image: 'assets/imgale/E02508.jpg' }, { name: 'CONSCRIPTO', image: 'assets/imgale/E03208.jpg' }, {name: 'FAS', image: 'assets/imgale/E02569.jpg' }, { name: 'Impulso', image: 'assets/imgale/E10331.jpg' }, { name: 'MANTARRAYA', image: 'assets/imgale/E04166.jpg' }, { name: 'NAVARRO',code:'E00022', image: 'assets/imgale/E00022.jpg' }, {name: 'RIVIERA',code:'E00061', image: 'assets/imgale/E00061.jpg' }, { name: 'SAN ALEJO', image: 'assets/imgale/E12929.jpg' }, { name: 'TECAMACHALCO',code:'E02522', image: 'assets/imgale/E02522.jpg' }, { name: 'TLATILCO',code:'E02521', image: 'assets/imgale/E02521.jpg' }, { name: 'TEOLOYUCAN',code:'E08844', image: 'assets/imgale/E08844.jpg' }, { name: 'ULISES', image: 'assets/imgale/E02506.jpg' }, { name: 'VERTIZ',code:'E10713', image: 'assets/imgale/E10713.jpg' }, { name: 'PUENTE GRANDE',code:'E13421', image: 'assets/imgale/E13421.jpg' }, { name: 'XOCHINAHUAC',code:'E03813', image: 'assets/imgale/E3813.jpg' }, { name: 'TEYAI', image: 'assets/imgale/E11005.jpg' }, { name: 'TEYA II',code:'E00186', image: 'assets/imgale/E11246.jpg' }, { name: 'ROBLE AGRICOLA',code:'E00186', image: 'assets/imgale/E09269.jpg' }, { name: 'UMAN I',code:'E10595', image: 'assets/imgale/E10595.jpg' }, { name: 'UMAN II',code:'E11292', image: 'assets/imgale/E11292.jpg' }, { name: 'XCANANTUN I', image: 'assets/imgale/E10607.jpg' }, { name: 'XCANANTUN II',code:'E00186', image: 'assets/imgale/E12654.jpg' }];
+
+var Gallery = function (_Component) {
+  _inherits(Gallery, _Component);
+
+  function Gallery(props) {
+    _classCallCheck(this, Gallery);
+
+    var _this = _possibleConstructorReturn(this, _Component.call(this, props));
+
+    _this.items = items;
+    _this.defaultCardPos = { top: '-200%', left: 0 };
+    _this.state = { activeItem: false, cardTop: _this.defaultCardPos.top, cardLeft: _this.defaultCardPos.left, cardActive: false };
+    return _this;
+  }
+
+  Gallery.prototype.handleItemClick = function handleItemClick(name, item) {
+    var _this2 = this;
+    //console.log(name);
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    this.setState({ activeItem: name });
+    var oTop = item.offsetTop,
+        oLeft = item.offsetLeft;
+    this.setState({ cardTop: oTop, cardLeft: oLeft });
+    this.cardTimeout = setTimeout(function () {
+      _this2.setState({ cardActive: true });
+    },400);
+  };
+
+  Gallery.prototype.getBackgroundImage = function getBackgroundImage(itemName) {
+    var imageItem = this.items.reduce(function (ov, nv) {
+      return nv.name == itemName ? nv : ov;
+    });
+    return imageItem.image;
+  };
+
+  Gallery.prototype.handleCardClick = function handleCardClick() {
+    if (!this.state.activeItem) return false;
+    this.setState({ cardActive: false, activeItem: false, cardTop: this.defaultCardPos.top, cardLeft: this.defaultCardPos.left });
+  };
+
+  Gallery.prototype.renderGallery = function renderGallery() {
+    var _this3 = this;
+
+    return this.items.map(function (item) {
+      var activeClass = _this3.state.cardActive ? 'active' : ''; //this.state.activeItem == item.name ? 'active' : '';
+      return React.createElement(
+        GalleryItem,
+        { name: item.name, background: item.image, active: activeClass, clickFunction: _this3.handleItemClick.bind(_this3) },
+        React.createElement(
+          'h2',
+          null,
+          item.name,
+
+        ),
+        React.createElement(
+          'h1',
+          null,
+
+        ),
+        React.createElement('div', { className: 'item-mask' })
+      );
+    });
+  };
+
+  Gallery.prototype.render = function render() {
+    var maskActive = ''; //this.state.activeItem ? "active" : "";
+    var galleryBackground = this.state.activeItem ? this.getBackgroundImage(this.state.activeItem) : '';
+    return React.createElement(
+      'div',
+      { className: 'gallery' },
+      this.renderGallery(),
+      React.createElement(Card, { title: this.state.activeItem, ref: 'card', top: this.state.cardTop, left: this.state.cardLeft, active: this.state.cardActive, closeFunction: this.handleCardClick.bind(this) }),
+      React.createElement('div', { className: 'gallery-mask ' + maskActive }),
+      React.createElement('div', { className: 'backdrop ' + (this.state.activeItem ? 'active' : ''), style: { 'backgroundImage': 'url(' + galleryBackground + ')' }, onClick: this.handleCardClick.bind(this) })
+    );
+  };
+
+  return Gallery;
+}(Component);
+
+var GalleryItem = function (_Component2) {
+  _inherits(GalleryItem, _Component2);
+
+  function GalleryItem(props) {
+    _classCallCheck(this, GalleryItem);
+
+    var _this4 = _possibleConstructorReturn(this, _Component2.call(this, props));
+
+    console.log(_this4.props.background);
+    return _this4;
+  }
+
+  GalleryItem.prototype.handleClick = function handleClick(e) {
+    e.preventDefault();
+    this.props.clickFunction(this.props.name, this.refs.el);
+  };
+
+  GalleryItem.prototype.render = function render() {
+    var style = { 'background-image': 'url(' + this.props.background + ')' };
+    return React.createElement(
+      'div',
+      { ref: 'el', className: 'gallery-item ' + this.props.active, style: style, onClick: this.handleClick.bind(this) },
+      this.props.children
+    );
+  };
+
+  return GalleryItem;
+}(Component);
+
+var Card = function (_Component3) {
+  _inherits(Card, _Component3);
+
+  function Card(props) {
+    _classCallCheck(this, Card);
+
+    var _this5 = _possibleConstructorReturn(this, _Component3.call(this, props));
+
+    _this5.state = { transit: false };
+    return _this5;
+  }
+
+  Card.prototype.handleClose = function handleClose(e) {
+    var _this6 = this;
+
+    e.preventDefault();
+    this.setState({ transit: true });
+    this.timeout = setTimeout(function () {
+      _this6.setState({ transit: false });
+      _this6.props.closeFunction();
+    }, 400);
+  };
+
+  Card.prototype.render = function render() {
+    var activeClass = this.props.active ? "active" : "";
+    var transitClass = this.state.transit ? "transit" : "";
+    var msg ="Dirección: ";
+    var msg2="Telefono: ";
+    var diskla="Para cualquier aclaración con facturas o tickets porfavor contactenos con los siguientes datos";
+    var msgcor="Correo electronico: ";
+    var msgmail="@saigsa.com.mx";
+    var dire = {ati:"Atizapan Centro, 52900 Cd López Mateos, Méx.", bc:"Esq. Baja California, Av Nuevo León S/N, Hipódromo, 06100 Ciudad de México, CDMX.", bule: "Sta Cruz Acatlan, 53150 Naucalpan de Juárez, Méx.", car:"Km 15, Carr. México-Toluca 4279, Granjas Palo Alto, 05110 Ciudad de México, CDMX", coa: "Benito S/N, Juárez, Plan de San Miguel, 51700 Coatepec Harinas, Méx.", com: "Calle Comonfort 45, Peralvillo, Morelos, 06200 Ciudad de México, CDMX", con:"Avenida del Conscripto 1, Miguel Hidalgo, Manuel Avila Camacho, 11610 Ciudad de México, CDMX", fas:"Av Gustavo Baz 297, Hab Viveros de la Loma, 54080 Tlalnepantla, Méx.", imp:"Av. Sánchez Colín, Reyes Acozac, 55755 Tecamac de Felipe Villanueva, Méx.", mant:"Domicilio BLVD de las naciones km. 10.5 Col. FRACC jardín princesa CP 39699 Acapulco de juarez Guerrero",nav:"F.F.C.C. de Cuernavaca, Miguel Hidalgo, Polanco, Lomas de Chapultepec III Secc, 11510 Ciudad de México, CDMX", riv: "Av. Division del Nte. 1231, Vértiz Narvarte, 36000 Ciudad de México, CDMX",sna:"Mex7 Coatepec Harinas, Mex ", teca:"Av de las Fuentes 40, Lomas de Tecamachalco, 53950 Naucalpan de Juárez, Méx.", tla:"Av. Primero de Mayo S/N, San Luis Tlatilco, 53630 Naucalpan de Juárez, Méx.", teo:"Camino de Cedis, Estado de México", uli:"Calz. Ignacio Zaragoza 753, Puebla, 15020 Ciudad de México, CDMX.", ver:"Doctor José María Vertiz 431, Doctores, 06720 Ciudad de México, CDMX.", tey:"Carretera Federal Merida-Puerto Juarez KM. 10.350 No LOTE 12 Hacienda Teya Kanasin, Yucatan Mexico cp 97370", teyd:"Carretera Federal Merida-Puerto Juarez KM. 10.150 San Angel Kanasin, Yucatan Mexico cp 97370", rob: "34x 55y 57 No. 446 Roble Agricola UMAN, Yucatan, Mexico CP. 97390", uman: "Carretera Merida-Campeche KM 145.5 No UNAM, Yucatan, Mexico CP 97390", umand: "Carretera Merida-Campeche KM 147.960 No UNAM, Yucatan, Mexico CP 97390", xcan:" Carretera Merida-Progreso KM13 + 500 Tablaje 24673 No  Xcanatun, Yucatan, Mexico CP 97302",xcand:"Carretera Merida-Progreso KM14 + 591 Tablaje 16368 No  Xcanatun, Yucatan, Mexico CP 97302",pug:"Ex Hacienda San Jose, 54713 Cuautitlán Izcalli, Méx.", xoc:"Unnamed Road, 02120, San Martin Xochinahuac, 02120 Ciudad de México, CDMX" };
+    var naname = this.props.title;
+    var tels={ati:"5558248127", bc:"5555156327", bule: "5553734154", car:"55792150", coa: "7225124414", com: "5541867499", con:"5552943232", fas:"5553970722", imp:" ", mant:"7443650352",nav:"5555206519", riv: "5556045159",sna:" ", teca:"5552930145", tla:"5553011133",uli:"5557007700",pug:"5558951484" ,xoc:"53190099",teo:"5939146661", ver:"5554402767", tey:" ", teyd:" ", rob: " ", uman: " ", umand: " ", xcan:"  ",xcand:" " };
+    var msgdir="";
+    var mails={ati:"e9247atizapan", bc:"gbc", bule: "e3661bulevares", car:"e2698carretera", coa: "e10597coatepec", com: "e2508comonfort", con:"e3208conscripto", fas:"e2569fas", imp:"e10331impulso", mant:"e4166mantarraya",nav:"gnavarro", riv: "e0061riviera",sna:"e12929sanalejo", teca:"e2522tecamachalco", pug:"e13421puentegrande" ,xoc:"e3813xochinahuac" ,tla:"e2521tlatilco", teo:"e8844teoloyucan", uli:"e2506ulises", ver:"e10713vertiz", tey:"e11005teya", teyd:"e11246teya2", rob: "elroble", uman: "e10595uman", umand: "e10292uman2", xcan:"e10607xcanatun",xcand:"e12654xcanatun"};
+    var msgbc="";
+    var msgma="";
+    var msgtels= "";
+    var liga=""
+    if (naname == "ATIZAPAN") {
+      msgbc = "Bienvenido al portal de la estación ATIZAPAN E09247";
+      msgdir = dire.ati;
+      msgtels = tels.ati;
+      msgma= mails.ati;
+      liga = "http://saigsa-atizapan.ath.cx/fe/facturar.aspx?SS=f22qswu02t5ujsfmz2ratsje";
+    }
+    if (naname == "BC") {
+      msgbc = "Bienvenido al portal de la estación BC  E00186";
+      msgdir = dire.bc;
+      msgtels = tels.bc;
+      msgma= mails.bc;
+      liga = "http://saigsa-bc.ath.cx/fe/facturar.aspx?SS=i2szfnp4ujhvoqbsjewgixjg";
+    }
+    if (naname == "BULEVARES") {
+      msgbc = "Bienvenido al portal de la estación Bulevares E03661";
+      msgdir = dire.bule;
+      msgtels = tels.bule;
+      msgma= mails.bule;
+      liga = "http://saigsa-bulevares.ath.cx:8081/fe/facturar.aspx?SS=uifk1q5ebhpa2ism1pl5eolp";
+    }
+    if (naname == "CARRETERA") {
+      msgbc = "Bienvenido al portal de la estación Carretera E02698";
+      msgdir = dire.car;
+      msgtels = tels.car;
+      msgma= mails.car;
+      liga = "http://saigsa-carretera.ath.cx/fe/facturar.aspx?SS=nfkoihyzhmgqjmvfwou5rixa";
+    }
+    if (naname == "COATEPEC") {
+      msgbc = "Bienvenido al portal de la estación Coatepec E10415";
+      msgdir = dire.coa;
+      msgtels = tels.coa;
+      msgma= mails.coa;
+      liga = "http://saigsa-coatepec.mine.nu/fe/";
+    }
+    if (naname == "COMONFORT") {
+      msgbc = "Bienvenido al portal de la estación Comonfort E02508";
+      msgdir = dire.com;
+      msgtels = tels.com;
+      msgma= mails.com;
+      liga = "http://saigsa-comonfort.ath.cx:8081/fe/facturar.aspx?SS=rinwdeywphslaocdbhtws2wc";
+    }
+    if (naname == "CONSCRIPTO") {
+      msgbc = "Bienvenido al portal de la estación Conscripto E03208";
+      msgdir = dire.con;
+      msgtels = tels.con;
+      msgma= mails.con;
+      liga = "http://saigsa-conscripto.ath.cx/fe/facturar.aspx?SS=5jr4zehzgcjoovgmoztntfdj";
+    }
+    if (naname == "FAS") {
+      msgbc = "Bienvenido al portal de la estación Fas E02569";
+      msgdir = dire.fas;
+      msgtels = tels.fas;
+      msgma= mails.fas;
+      liga = "http://saigsa-fas.ath.cx/fe/facturar.aspx?SS=cl3lkaqa2glrpvroahdhxgnm";
+    }
+    if (naname == "IMPULSO") {
+      msgbc = "Bienvenido al portal de la estación Impulso E10331";
+      msgdir = dire.imp;
+      msgtels = tels.imp;
+      msgma= mails.imp;
+      liga = "";
+    }
+    if (naname == "MANTARRAYA") {
+      msgbc = "Bienvenido al portal de la estación Mantarraya E04166";
+      msgdir = dire.mant;
+      msgtels = tels.mant;
+      msgma= mails.mant;
+      liga = "http://mantarrayaw2.mine.nu/fe/";
+    }
+    if (naname == "NAVARRO") {
+      msgbc = "Bienvenido al portal de la estación Navarro E00022";
+      msgdir = dire.nav;
+      msgtels = tels.nav;
+      msgma= mails.nav;
+      liga = "http://saigsa-navarro.ath.cx/fe/facturar.aspx?SS=qrtwxgpr0ptjfttdjblfa3qj";
+    }
+    if (naname == "RIVIERA") {
+      msgbc = "Bienvenido al portal de la estación Riviera E00061";
+      msgdir = dire.riv;
+      msgtels = tels.riv;
+      msgma= mails.riv;
+      liga = "http://saigsa-riviera.ath.cx/fe/facturar.aspx?SS=sppfhtbolbveprczkrzrgtzc";
+    }
+    if (naname == "SAN ALEJO") {
+      msgbc = "Bienvenido al portal de la estación San Alejo E12929";
+      msgdir = dire.sna;
+      msgtels = tels.sna;
+      msgma= mails.sna;
+    }
+    if (naname == "TECAMACHALCO") {
+      msgbc = "Bienvenido al portal de la estación Tecamachalco E02522";
+      msgdir = dire.teca;
+      msgtels = tels.teca;
+      msgma= mails.teca;
+      liga = "http://saigsa-teca.ath.cx/fe/facturar.aspx?SS=steemzhjperlemqw5sbirs4q";
+    }
+    if (naname == "TLATILCO") {
+      msgbc = "Bienvenido al portal de la estación Tlatilco E02521";
+      msgdir = dire.tla;
+      msgtels = tels.tla;
+      msgma= mails.tla;
+      liga ="http://www.saigsa-tlatilco.ath.cx/fe/facturar.aspx?SS=2i2brmt4ujwdu0ett3vcntpp";
+    }
+    if (naname == "TEOLOYUCAN") {
+      msgbc = "Bienvenido al portal de la estación Teoloyucan E08844";
+      msgdir = dire.teo;
+      msgtels = tels.teo;
+      msgma= mails.teo;
+      liga = "http://saigsa-teoloyucan.mine.nu:8089/fe/";
+    }
+    if (naname == "ULISES") {
+      msgbc = "Bienvenido al portal de la estación Ulises E02506";
+      msgdir = dire.uli;
+      msgtels = tels.uli;
+      msgma= mails.uli;
+      liga = "http://saigsa-ulises.ath.cx/fe/facturar.aspx?SS=iv32qd4oc3xktttb4rrktquc";
+    }
+    if (naname == "PUENTE GRANDE") {
+      msgbc = "Bienvenido al portal de la estación Puente Grande E13421";
+      msgdir = dire.pug;
+      msgtels = tels.pug;
+      msgma= mails.pug;
+      liga = "http://189.204.159.34:8889/fe/";
+    }
+    if (naname == "XOCHINAHUAC") {
+      msgbc = "Bienvenido al portal de la estación Xochinahuac E03813";
+      msgdir = dire.xoc;
+      msgtels = tels.xoc;
+      msgma= mails.xoc;
+      liga = "http://www.mifacturadegasolina.mx:3813/fe/";
+    }
+    if (naname == "VERTIZ") {
+      msgbc = "Bienvenido al portal de la estación Vertiz E10713";
+      msgdir = dire.ver;
+      msgtels = tels.ver;
+      msgma= mails.ver;
+      liga = "http://saigsa-vertiz.mine.nu/fe/facturar.aspx?SS=guds2n1uqnir32zjxpkd3mnu";
+    }
+    if (naname == "TEYAI") {
+      msgbc = "Bienvenido al portal de la estación Teya I E11005";
+      msgdir = dire.tey;
+      msgma= mails.tey;
+      liga = "http://187.188.175.207:11005/FE/";
+    }
+    if (naname == "TEYA II") {
+      msgbc = "Bienvenido al portal de la estación Teya II E11246";
+      msgdir = dire.teyd;
+      msgma= mails.teyd;
+      liga = "http://187.188.175.207:11246/FE/";
+    }
+    if (naname == "ROBLE AGRICOLA") {
+      msgbc = "Bienvenido al portal de la estación Roble Agricola E09269";
+      msgdir = dire.rob;
+      msgma= mails.rob;
+      liga = "http://187.188.175.207:9269/FE/";
+    }
+    if (naname == "UMAN I") {
+      msgbc = "Bienvenido al portal de la estación UMAN I E10595";
+      msgdir = dire.uman;
+      msgma= mails.uman;
+      liga = "http://187.188.175.207:10595/FE/";
+    }
+    if (naname == "UMAN II") {
+      msgbc = "Bienvenido al portal de la estación UMAN II E11292";
+      msgdir = dire.umand;
+      msgma= mails.umand;
+      liga = "http://187.188.175.207:11292/FE/";
+    }
+    if (naname == "XCANANTUN I") {
+      msgbc = "Bienvenido al portal de la estación XCANANTUN I E10607";
+      msgdir = dire.xcan;
+      msgma= mails.xcan;
+      liga ="http://187.188.175.207:10607/FE/";
+    }
+    if (naname == "XCANANTUN II") {
+      msgbc = "Bienvenido al portal de la estación XCANANTUN II E12654";
+      msgdir = dire.xcand;
+      msgma= mails.xcand;
+      liga = "http://187.188.175.207:12654/FE/";
+    }
+    return React.createElement(
+      'div',
+      { className: 'card ' + activeClass + ' ' + transitClass, style: { 'left': this.props.left, 'top': this.props.top } },
+      React.createElement(
+        'h2',
+        null,
+        this.props.title
+      ),
+      React.createElement(
+        'a',
+        { className: 'btn-close', onClick: this.handleClose.bind(this) },
+        'Close x'
+      ),
+      React.createElement(
+        'p',
+        null,
+        msgbc,
+      ),
+      React.createElement(
+        'p',
+        null,
+        diskla,
+      ),
+      React.createElement(
+        'p',
+        null,
+        msg + msgdir,
+      ),
+      React.createElement(
+        'p',
+        null,
+        msg2 + msgtels,
+      ),
+      React.createElement(
+        'p',
+        null,
+        msgcor + msgma + msgmail,
+      ),
+      React.createElement(
+        'Br',
+        null,
+      ),
+      React.createElement(
+        'a',
+        { href:liga , className: 'btn-go', onClick: "http://saigsa-bc.ath.cx/fe/facturar.aspx?SS=i2szfnp4ujhvoqbsjewgixjg" },
+        'Factura aquí¡¡¡¡'
+      ),
+    );
+  };
+
+  return Card;
+}(Component);
+
+ReactDOM.render(React.createElement(Gallery, null), document.getElementById('portfolio'));
+//# sourceURL=pen.js
+</script>
+
+<div>
+  <footer>
+  <div class="col">
+    <a href="https://www.saigsa.com.mx"><img src="assets/imgale/sabl.png" style="position: absolute; top: 15px; left: 50px; width: 100px;"></a>
+    <a href="https://www.rhinointranet.xyz"><img src="assets/imgale/rhinoo.png" style="position: absolute; top: 15px; left: 300px; width: 100px;"></a>
+  </div>
+  </footer>
+</div>
+
+
+</body></html>
